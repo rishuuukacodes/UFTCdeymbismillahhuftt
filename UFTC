@@ -1,0 +1,248 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 09 Nov 2025 pada 17.22
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `uftc2025`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `cabang_lomba`
+--
+
+CREATE TABLE `cabang_lomba` (
+  `id_cabang` int(11) NOT NULL,
+  `nama_cabang` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `cabang_lomba`
+--
+
+INSERT INTO `cabang_lomba` (`id_cabang`, `nama_cabang`) VALUES
+(1, 'Karya Tulis'),
+(2, 'Ide Bisnis'),
+(3, 'Essay'),
+(4, 'Gagasan Futuristik'),
+(5, 'Speech Competition'),
+(6, 'Film Pendek'),
+(7, 'Video Reels'),
+(8, 'Video Inspiratif'),
+(9, 'Fotografi'),
+(10, 'Poster Infografis'),
+(11, 'Poster Persuasif'),
+(12, 'Desain Power Point dan Presentasi'),
+(13, 'Tilawah Quran'),
+(14, 'Hifdzhil Quran'),
+(15, 'Menyanyi Solo Pop'),
+(16, 'Menyanyi Solo Daerah'),
+(17, 'Menyanyi Solo Dangdut'),
+(18, 'Special Talent');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `fakultas`
+--
+
+CREATE TABLE `fakultas` (
+  `id_fakultas` int(11) NOT NULL,
+  `nama_fakultas` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `fakultas`
+--
+
+INSERT INTO `fakultas` (`id_fakultas`, `nama_fakultas`) VALUES
+(1, 'Ekonomi dan Bisnis'),
+(2, 'Hukum'),
+(3, 'Ilmu Budaya'),
+(4, 'Ilmu Kelautan dan Perikanan'),
+(5, 'Ilmu Sosial dan Ilmu Politik'),
+(6, 'Kedokteran'),
+(7, 'Kedokteran Gigi'),
+(8, 'Keperawatan'),
+(9, 'Kesehatan Masyarakat'),
+(10, 'MIPA'),
+(11, 'Pertanian'),
+(12, 'Peternakan'),
+(13, 'Teknik'),
+(14, 'Teknologi Pertanian'),
+(15, 'Vokasi');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `finalis`
+--
+
+CREATE TABLE `finalis` (
+  `id_finalis` int(11) NOT NULL,
+  `nama_finalis` varchar(150) NOT NULL,
+  `no_whatsapp` varchar(30) DEFAULT NULL,
+  `nim` varchar(30) DEFAULT NULL,
+  `id_prodi` int(11) NOT NULL,
+  `id_cabang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `prodi`
+--
+
+CREATE TABLE `prodi` (
+  `id_prodi` int(11) NOT NULL,
+  `nama_prodi` varchar(150) NOT NULL,
+  `id_fakultas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `prodi`
+--
+
+INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `id_fakultas`) VALUES
+(1, 'Ilmu Ekonomi', 1),
+(2, 'Ekonomi Pembangunan', 1),
+(3, 'Manajemen', 1),
+(4, 'Kesehatan Masyarakat', 9),
+(5, 'Ilmu Gizi', 9),
+(6, 'Terapi Gigi', 15),
+(7, 'Teknologi Akuakultur dan Pasca Panen Perikanan', 15),
+(8, 'Paramedik Veteriner', 15),
+(9, 'Budidaya Laut dan Pantai', 15),
+(10, 'Teknologi Pakan Ternak', 15),
+(11, 'Komunikasi Digital', 15),
+(12, 'Teknik Metalurgi Ekstraksi', 15),
+(13, 'Teknologi Produksi Ternak', 15),
+(14, 'Agribisnis Peternakan', 15),
+(15, 'Teknologi Produksi Tanaman Pangan', 15),
+(16, 'Destinasi Pariwisata', 15),
+(17, 'Agribisnis Pangan', 15),
+(18, 'Ilmu Sejarah', 3),
+(19, 'Ilmu Budaya', 3),
+(20, 'Pariwisata', 3),
+(21, 'Sastra Jepang', 3),
+(22, 'Sastra Inggris', 3),
+(23, 'Sastra Arab', 3),
+(24, 'Teknologi Hasil Perikanan', 4),
+(25, 'Teknik Industri', 13),
+(26, 'Teknik Mesin', 13),
+(27, 'Teknik Sipil', 13),
+(28, 'Teknik Lingkungan', 13),
+(29, 'Teknik Elektro', 13),
+(30, 'Arsitektur', 13),
+(31, 'Teknik Informatika', 13),
+(32, 'Ilmu Hukum', 2),
+(33, 'Kedokteran', 6),
+(34, 'Kedokteran Hewan', 6),
+(35, 'Psikologi', 6),
+(36, 'Statistika', 10),
+(37, 'Matematika', 10),
+(38, 'Ilmu Sosial dan Ilmu Politik', 5),
+(39, 'Ilmu Hubungan Internasional', 5),
+(40, 'Agribisnis', 11),
+(41, 'Teknik Pertanian', 14),
+(42, 'Ilmu dan Teknologi Pangan', 14),
+(43, 'Peternakan', 12),
+(44, 'Pendidikan Dokter Gigi', 7),
+(45, 'Fisioterapi', 8);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `cabang_lomba`
+--
+ALTER TABLE `cabang_lomba`
+  ADD PRIMARY KEY (`id_cabang`);
+
+--
+-- Indeks untuk tabel `fakultas`
+--
+ALTER TABLE `fakultas`
+  ADD PRIMARY KEY (`id_fakultas`);
+
+--
+-- Indeks untuk tabel `finalis`
+--
+ALTER TABLE `finalis`
+  ADD PRIMARY KEY (`id_finalis`),
+  ADD KEY `fk_finalis_prodi` (`id_prodi`),
+  ADD KEY `fk_finalis_cabang` (`id_cabang`);
+
+--
+-- Indeks untuk tabel `prodi`
+--
+ALTER TABLE `prodi`
+  ADD PRIMARY KEY (`id_prodi`),
+  ADD KEY `fk_prodi_fakultas` (`id_fakultas`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `cabang_lomba`
+--
+ALTER TABLE `cabang_lomba`
+  MODIFY `id_cabang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT untuk tabel `fakultas`
+--
+ALTER TABLE `fakultas`
+  MODIFY `id_fakultas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT untuk tabel `finalis`
+--
+ALTER TABLE `finalis`
+  MODIFY `id_finalis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+
+--
+-- AUTO_INCREMENT untuk tabel `prodi`
+--
+ALTER TABLE `prodi`
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `finalis`
+--
+ALTER TABLE `finalis`
+  ADD CONSTRAINT `fk_finalis_cabang` FOREIGN KEY (`id_cabang`) REFERENCES `cabang_lomba` (`id_cabang`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_finalis_prodi` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `prodi`
+--
+ALTER TABLE `prodi`
+  ADD CONSTRAINT `fk_prodi_fakultas` FOREIGN KEY (`id_fakultas`) REFERENCES `fakultas` (`id_fakultas`) ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
