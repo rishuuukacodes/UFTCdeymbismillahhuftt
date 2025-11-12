@@ -353,3 +353,54 @@ INSERT INTO Finalis (nama_finalis, no_whatsapp, nim, id_prodi, id_cabang) VALUES
 ('Muhammad Amin Sholeh Tosepu', '088479261233', 'V056251072', 15, 18),
 ('Dennis Rahardian Kadir', '082886113811', 'E061251057', 13, 18),
 ('Adinda Maharani Sitompul', '083947654021', 'C021251076', 6, 18);
+
+#Menambahkan kolom Kategori pada tabel Cabang Lomba#
+#Syntax untuk menambahkan kolom pada cabang lomba#
+
+alter table cabang_lomba
+add column kategori varchar(50) after nama_cabang;
+
+#menambahkan isi pada tabel cabang_lomba#
+update cabang_lomba set kategori = 'Akademik' where nama_cabang in ('Karya Tulis', 'Ide Bisnis', 'Essay', 'Gagasan Futuristik', 'Speech Competition', 'Desain Power Point dan Presentasi');
+update cabang_lomba set kategori = 'Seni' where nama_cabang in ('Film Pendek', 'Video Reels', 'Video Inspiratif', 'Fotografi', 'Poster Infografis', 'Poster Persuasif', 'Menanyi Solo Pop', 'Menyanyi Solo Daerah', 'Menyanyi Solo Dangdut', 'Special Talent');
+update cabang_lomba set kategori = 'Keagamaan' where nama_cabang in ('Tilawah Quran', 'Hifdzhil Quran');
+
+#menambahkan kolom Nama_Dekan pada tabel Fakultas#
+#Syntax untuk menambahkan kolom pada Fakultas#
+
+alter table fakultas 
+add column dekan varchar(100) after nama_fakultas
+
+#menambahkan isi pada tabel fakultas#
+#Syntax untuk menambahkan kolom pada tabel fakultas#
+
+update fakultas set dekan = 'Prof. Dr. Mursalim, SE., M.Si
+' where id_fakultas = 1;
+update fakultas set dekan = 'Prof. Dr. Hamzah Halim S.H., M.H., M.A.P
+' where id_fakultas = 2;
+update fakultas set dekan = 'Prof. Dr. Andi Muhammad Akhmar, S.S., M.Hum
+' where id_fakultas = 3;
+update fakultas set dekan = 'Prof. Dr. Mahatma, ST., M.Sc
+' where id_fakultas = 4;
+update fakultas set dekan = 'Prof. Dr. Phil. Sukri, M.Si
+' where id_fakultas = 5;
+update fakultas set dekan = 'Prof. Dr. dr. Haerani Rasyid, M.Kes., Sp.PD-KGH., Sp.GK
+' where id_fakultas = 6;
+update fakultas set dekan = 'drg. Irfan Sugianto, M.Med.ED., Ph.D
+' where id_fakultas = 7;
+update fakultas set dekan = 'Prof. Dr. Elly Lilianty Sjattar, S.Kp., M.Kes
+' where id_fakultas = 8;
+update fakultas set dekan = 'Prof. Sukri Palutturi, SKM, M.Kes., MSc.PH, Ph.D
+' where id_fakultas = 9;
+update fakultas set dekan = 'Dr. Sci. Muhammad Zakir, S.Si., M.Si
+' where id_fakultas = 10;
+update fakultas set dekan = 'Prof. Dr. Ir. Rismaneswati, S.P., M.P
+' where id_fakultas = 11;
+update fakultas set dekan = 'Prof. Dr. Syahdar Baba, S.Pt., M.Si
+' where id_fakultas = 12;
+update fakultas set dekan = 'Prof. Dr. Eng. Ir. Muhammad Isran Ramli, S.T., M.T
+' where id_fakultas = 13;
+update fakultas set dekan = 'Prof. Dr. Ir. Salengke, M.Sc
+' where id_fakultas = 14;
+update fakultas set dekan = 'Prof. Dr. Ir. Muhammad Restu, MP
+' where id_fakultas = 15;
