@@ -149,8 +149,28 @@ INSERT INTO Prodi (nama_prodi, id_fakultas) VALUES
 -- Keperawatan (8)
 ('Fisioterapi', 8);
 
-#Isi data finalis#
+#Isi data cabang lomba#
+INSERT INTO Cabang_Lomba (nama_cabang) VALUES
+('Karya Tulis'),
+('Ide Bisnis'),
+('Essay'),
+('Gagasan Futuristik'),
+('Speech Competition'),
+('Film Pendek'),
+('Video Reels'),
+('Video Inspiratif'),
+('Fotografi'),
+('Poster Infografis'),
+('Poster Persuasif'),
+('Desain Power Point dan Presentasi'),
+('Tilawah Quran'),
+('Hifdzhil Quran'),
+('Menyanyi Solo Pop'),
+('Menyanyi Solo Daerah'),
+('Menyanyi Solo Dangdut'),
+('Special Talent');
 
+#Isi data finalis#
 INSERT INTO Finalis (nama_finalis, no_whatsapp, nim, id_prodi, id_cabang) VALUES
 ('Laela Alie', '082259374274', 'A011251067', 1, 1),
 ('Nailah Putri', '087877960335', 'K011251075', 9, 1),
